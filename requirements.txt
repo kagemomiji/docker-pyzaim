@@ -1,0 +1,4 @@
+selenium
+requests_oauthlib
+tqdm 
+chromedriver-binary==86.0.4240.22
