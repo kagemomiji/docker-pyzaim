@@ -91,7 +91,7 @@ class ZaimCrawler:
         # load page again for getting record
         self.driver.set_window_size(self.WINDOW_WIDTH, self.MIN_WINDOW_HEIGHT + line_height*(record_num - self.MIN_RECORD_NUM ))
         self.driver.get("https://zaim.net/money?month={}{}".format(year, month))
-        time.sleep(1)
+        time.sleep(record_num/5)
 
         table = self.driver.find_element_by_xpath("//*[starts-with(@class, 'SearchResult-module__list___')]")
         lines = table.find_elements_by_xpath("//*[starts-with(@class, 'SearchResult-module__body___')]")
