@@ -1,18 +1,21 @@
 language: python
 python:
-  - "3.7"
-  - "3.8"
+- '3.7'
+- '3.8'
 addons:
   apt:
     update: true
     sources:
-     - google-chrome
+    - google-chrome
     packages:
-     - dpkg
-     - google-chrome-stable
+    - dpkg
+    - google-chrome-stable
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - python -m unittest tests/test_oauth_initializer.py
-  - python -m unittest tests/test_zaim_api.py
-  - python -m unittest tests/test_crawler.py
+- python -m unittest tests/test_oauth_initializer.py
+- python -m unittest tests/test_zaim_api.py
+- python -m unittest tests/test_crawler.py
+notifications:
+  slack:
+    secure: QyvDrZIKQhJ3Mr9P6mODncyRajcmFmk/a7bhgmLhcItjyn8enUoRfDoqSg/Iebn+4v+02TV2WE0ss3qBhqwbVy9U3c0hFv6j56yMidnxz+WXyDk+KMpcOppG2EgO85wmMfp748MRAFjL2WP1HfFmSoR4op50UPSA2gCFbygcDcFiod5Pzd6sTw4e0gDCdVwK6uEbb31dDou1fyH1JXh6iX/q3oNZzFJoCQuTZTgtZmP/Nt/QhfgMLyUaD5DourFdOzB9Y0IK7T11GMwolmT7biMP5i6tAs58JCqiHxOrw+PHs0FEglPOj2a4pckegLj0ouR0dlNhqh7zjCT/6oLsUpnsDGbXQfZj9osDD2dWv4W2I0bGon/WwiUXjPTKc+1YCqx6PjvtcPc5t/NmnzBq7NFtJDvEijkR6dBDGKhR7kOnloR/JktXrlsXbpOxPSLkKqPiY1hrAfMo6GRKTDnnIQDR9GQs5L5U4K2lYcnlqcNQSC8sHm2DKQyfBrQ/dcUDxIHLwrXz3HrSoXJfqQJZmo+dgWJeiG7e1MWMymhpWyppuSfrhgIagfh/Z6uYh31sjc7WzoSJaOO2z4gdXzvbQ3XjwF75cN02ROiagvAlXHN0HLFlpdAEQ+f/hyq8N4XMb/T5w4k2+Km6fHkHZaQ2/9UEBLf5rn+RSpQ9Nrr4gZQ=
