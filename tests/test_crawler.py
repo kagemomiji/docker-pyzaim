@@ -28,20 +28,20 @@ class TestCrawler(unittest.TestCase):
 
         env.recover(old_env)
     
-    def test_get_data_10(self):
+    def test_get_data(self):
 
         #Input Test Data
         today = datetime.date.today()
 
         api = ZaimAPI()
-        for i in range(20):
+        for i in range(40):
             api.insert_payment_simple(today,100*(i + 1),"食料品")
 
         # init crawler
         crawler = ZaimCrawler()
 
         # assert 
-        self.assertEqual(len(crawler.get_data(today.year,today.month)) , 10)
+        self.assertEqual(len(crawler.get_data(today.year,today.month)) , 40)
         
         #clear test data
         #get data
@@ -55,30 +55,4 @@ class TestCrawler(unittest.TestCase):
         crawler.close()
 
 
-    def test_get_data_20(self):
-
-        #Input Test Data
-        today = datetime.date.today()
-
-        api = ZaimAPI()
-        for i in range(20):
-            api.insert_payment_simple(today,100*(i + 1),"食料品")
-
-        # init crawler
-        crawler = ZaimCrawler()
-
-        # assert 
-        self.assertEqual(len(crawler.get_data(today.year,today.month,20)) , 20)
-
-        #clear test data
-        #get data
-        json = api.get_data()
-
-        #delete payment
-        for data in json:
-            api.delete_payment(data.get("id"))
-        
-        #close crawler
-        crawler.close()
-
-
+    
