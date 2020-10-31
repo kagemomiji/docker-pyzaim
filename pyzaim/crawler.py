@@ -90,7 +90,7 @@ class ZaimCrawler:
         time.sleep(2)
 
         #update current day to last day
-        self.currnt = day_len
+        self.current = day_len
 
         #print("Found {} data.".format(len(lines)))
         if progress:
