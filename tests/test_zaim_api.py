@@ -61,11 +61,6 @@ class TestAPIInitializer(unittest.TestCase):
             time.sleep(1)
             self.assertEqual(api.delete_payment(data.get("id")).status_code,200)
         
-        #get data
-        time.sleep(5)
-        json = api.get_data()
-        self.assertEqual(len(json),0)
-
     def test_income(self):
         api = ZaimAPI() 
         
@@ -88,11 +83,6 @@ class TestAPIInitializer(unittest.TestCase):
             time.sleep(1)
             self.assertEqual(api.delete_income(data.get("id")).status_code,200)
 
-        #get data
-        time.sleep(5)
-        json = api.get_data()
-        self.assertEqual(len(json),0)
-
     def test_transfer(self):
         api = ZaimAPI() 
         
@@ -113,10 +103,6 @@ class TestAPIInitializer(unittest.TestCase):
             time.sleep(1)
             self.assertEqual(api.delete_transfer(data.get("id")).status_code,200)
 
-        #get data
-        time.sleep(5)
-        json = api.get_data()
-        self.assertEqual(len(json),0)
 
 if __name__ == '__main__':
     unittest.main()
