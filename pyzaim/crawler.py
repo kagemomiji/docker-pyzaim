@@ -101,8 +101,9 @@ class ZaimCrawler:
             loop = self.crawler(pbar,year,progress)
 
         if progress:
+            pbar.update(self.current)
             pbar.close()
-        return self.data
+        return reversed(self.data)
     
     def get_oauth_verifier(self,authorization_url):
         self.driver.get(authorization_url)
@@ -178,11 +179,11 @@ class ZaimCrawler:
             )
             item["name"] = (
                 items[8].find_element_by_tag_name(
-                    "span").get_attribute("title")
+                    "span").text
             )
             item["comment"] = (
                 items[9].find_element_by_tag_name(
-                    "span").get_attribute("title")
+                    "span").text
             )
             self.data.append(item)
             tmp_day = item["date"].day
