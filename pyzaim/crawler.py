@@ -103,7 +103,7 @@ class ZaimCrawler:
         if progress:
             pbar.update(self.current)
             pbar.close()
-        return reversed(self.data)
+        return self.data
     
     def get_oauth_verifier(self,authorization_url):
         self.driver.get(authorization_url)
