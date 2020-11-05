@@ -10,7 +10,7 @@ from pyzaim import OauthInitializer, ZaimCrawler, ZaimAPI
 def crawl_data(ym = datetime.date.today()):
     crawler = ZaimCrawler()
     try:
-        data = crawler.get_data(ym.year, ym.month, 100)
+        data = crawler.get_data(ym.year, ym.month, False)
         return data
     except NoSuchElementException as e:
         print("Error: No Zaim Data in " + ym.strftime('%Y/%m'))
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit() 
         
-    print(json)
+    print("{\"values\":" + str(json) + "}")
 
 
     
