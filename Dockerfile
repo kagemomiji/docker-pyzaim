@@ -15,13 +15,15 @@ RUN  sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /et
 
 RUN useradd -m -s /bin/bash zaim
 
-COPY . /home/zaim/pyzaim
+COPY ./pyzaim /home/zaim/pyzaim
+COPY main.py  /home/zaim/main.py
+COPY requirements.txt /home/zaim/requirements.txt
 
-RUN chown -R zaim:zaim /home/zaim/pyzaim
+RUN chown -R zaim:zaim /home/zaim/
 
 USER zaim
 
-WORKDIR /home/zaim/pyzaim
+WORKDIR /home/zaim/
 
 RUN pip install -r requirements.txt
 
