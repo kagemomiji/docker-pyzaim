@@ -65,7 +65,7 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit() 
         
-    print("{\"values\":" + str(json) + "}")
+    print("{'values':" + str(json) + "}")
 
 
     
