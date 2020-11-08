@@ -12,7 +12,7 @@ This Software includes customized [reeve0930/pyzaim](https://github.com/reeve093
 - Zaim Developersでのアプリケーションの登録 (コンシューマID、コンシューマシークレットの発行)
 - docker環境を構築
 
-## インストール
+## Install
 
 ```bash
 docker build -t docker-zaim .
@@ -28,7 +28,7 @@ docker run --rm \
   -e USER_PASSWORD=<user password> \
   -e CONSUMER_ID=<consumer_id> \
   -e CONSUMER_SECRET=<consumer_secret> \
-  docker-zaim --oauth
+  docker-zaim api --oauth
 ```
 
 after some seconds , it will print ACCESS_TOKEN/ACCESS_TOKEN_SECRET/OAUTH_VERIFIER
@@ -43,14 +43,26 @@ docker run --rm \
   -e OAUTH_VERIFIER=<oauth verifier> \
   -e ACCESS_TOKEN=<access token> \
   -e ACCESS_TOKEN_SECRET=<access token secret>
-  docker-zaim --api
+  docker-zaim --get
 ```
 
-### Get Data with Crawler Access
+### Get Data of Specific Month with Crawler Access
+
+argument require yyyymm format
 
 ```bash
 docker run --rm \
   -e USER_ID=<user email address> \ 
   -e USER_PASSWORD=<user password> \
-  docker-zaim --crawler
+  docker-zaim crawler 202010
+```
+
+
+### Get Data with Crawler Access from Some Month
+
+```bash
+docker run --rm \
+  -e USER_ID=<user email address> \ 
+  -e USER_PASSWORD=<user password> \
+  docker-zaim crawler --fr 201810
 ```
