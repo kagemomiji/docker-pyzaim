@@ -155,9 +155,10 @@ class ZaimCrawler:
                 .split("（")[0]
             )
             date = items[2].text.split("（")[0]
-            item["date"] = datetime.datetime.strptime(
+            tmp_date = datetime.datetime.strptime(
                 "{}年{}".format(year, date), "%Y年%m月%d日"
             )
+            item["date"] = tmp_date.isoformat()
             item["category"] = (
                 items[3].find_element_by_tag_name(
                     "span").get_attribute("data-title")
@@ -186,7 +187,7 @@ class ZaimCrawler:
                     "span").text
             )
             self.data.append(item)
-            tmp_day = item["date"].day
+            tmp_day = tmp_date.day
 
             if progress:
                 self.pbar.update(self.current - tmp_day)
